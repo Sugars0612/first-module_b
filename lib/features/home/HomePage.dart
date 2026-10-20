@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/home/models/Banner.dart';
 import 'package:module_b_first/features/home/models/CategoriesItem.dart';
+import 'package:module_b_first/features/home/models/FoodItem.dart';
 import 'package:module_b_first/features/home/services/HomeService.dart';
 import 'package:module_b_first/features/home/widgets/CardTitle.dart';
 import 'package:module_b_first/features/home/widgets/CategoriesCard.dart';
 import 'package:module_b_first/features/home/widgets/FoodBanner.dart';
+import 'package:module_b_first/features/home/widgets/FoodCard.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,11 +19,13 @@ class _HomePageState extends State<HomePage> {
   HomeService service = HomeService();
   List<BannerItem> banners = [];
   List<CategoriesItem> categories = [];
+  List<FoodItem> foods = [];
 
   @override
   void initState() {
     loadBanners();
     loadCategories();
+    loadFoods();
     super.initState();
   }
 
@@ -38,6 +42,14 @@ class _HomePageState extends State<HomePage> {
 
     setState(() {
       this.categories = categories;
+    });
+  }
+
+  Future<void> loadFoods() async {
+    final foods = await service.getFoods();
+
+    setState(() {
+      this.foods = foods;
     });
   }
 
@@ -118,6 +130,31 @@ class _HomePageState extends State<HomePage> {
               child: CardTitle(text: "Popular  food"),
             ),
           ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 300,
+              padding: EdgeInsets.only(left: 5),
+              child: ListView.separated(
+                  itemCount: foods.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      width: 300,
+                      // height: 600,
+                      color: Colors.white,
+                      child: FoodCard(
+                        foodItem: foods[index],
+                      ),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      width: 50,
+                    );
+                  }
+              ),
+            )
+          )
         ],
       ),
     )));
