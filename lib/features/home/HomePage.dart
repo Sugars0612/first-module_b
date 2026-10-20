@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/home/models/Banner.dart';
+import 'package:module_b_first/features/home/models/CategoriesItem.dart';
 import 'package:module_b_first/features/home/services/HomeService.dart';
+import 'package:module_b_first/features/home/widgets/CardTitle.dart';
+import 'package:module_b_first/features/home/widgets/CategoriesCard.dart';
 import 'package:module_b_first/features/home/widgets/FoodBanner.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,19 +16,61 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   HomeService service = HomeService();
   List<BannerItem> banners = [];
-  @override
+  List<CategoriesItem> categories = [];
 
+  @override
   void initState() {
     loadBanners();
+    loadCategories();
     super.initState();
   }
 
   Future<void> loadBanners() async {
-    final data = await service.getBanner();
+    final banners = await service.getBanner();
 
     setState(() {
-      banners = data;
+      this.banners = banners;
     });
+  }
+
+  Future<void> loadCategories() async {
+    final categories = await service.getCategories();
+
+    setState(() {
+      this.categories = categories;
+    });
+  }
+
+  List<Widget> buildCategoryWidgets() {
+
+    // children: [
+    //   Expanded(flex: 1, child: CategoriesCard()),
+    //   SizedBox(width: 20),
+    //   Expanded(flex: 1, child: CategoriesCard()),
+    //   SizedBox(width: 20),
+    //   Expanded(flex: 1, child: CategoriesCard()),
+    // ],
+
+    final List<Widget> widgets = [];
+
+    for (int i=0; i < categories.length; i++) {
+      widgets.add(
+        Expanded(
+            child: CategoriesCard(
+              categoriesInfo: categories[i],
+            )
+        )
+      );
+
+      if (i != categories.length - 1) {
+        widgets.add(
+          const SizedBox(width: 20)
+        );
+      }
+
+    }
+
+    return widgets;
   }
 
   Widget build(BuildContext context) {
@@ -36,9 +81,43 @@ class _HomePageState extends State<HomePage> {
       child: CustomScrollView(
         slivers: [
           // 轮播图模块
+          SliverToBoxAdapter(child: FoodBanner(bannerList: banners)),
           SliverToBoxAdapter(
-            child: FoodBanner(bannerList: banners)
-          )
+            child: SizedBox(
+              height: 30,
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 35,
+              width: double.infinity,
+              // color: Colors.green,
+              child: CardTitle(text: "Main  categories"),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+                height: 150,
+                width: double.infinity,
+                // color: Colors.white,
+                child: Flex(
+                  direction: Axis.horizontal,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: buildCategoryWidgets(),
+                )
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 30,),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 35,
+              width: double.infinity,
+              // color: Colors.green,
+              child: CardTitle(text: "Popular  food"),
+            ),
+          ),
         ],
       ),
     )));
