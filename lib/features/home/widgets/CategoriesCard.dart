@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/home/models/CategoriesItem.dart';
+import 'package:module_b_first/features/home_type/HomeTypePage.dart';
 
 class CategoriesCard extends StatefulWidget {
   final CategoriesItem categoriesInfo;
@@ -12,20 +13,25 @@ class CategoriesCard extends StatefulWidget {
 class _CategoriesCardState extends State<CategoriesCard> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.yellow, width: 2),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black12, offset: Offset(0, 2), blurRadius: 8, spreadRadius: 2)
-            ]),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(widget.categoriesInfo.imagePathName),
-            Text(widget.categoriesInfo.name)
-          ],
-        ));
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeTypePage()));
+      },
+      child: Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.yellow, width: 2),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12, offset: Offset(0, 2), blurRadius: 8, spreadRadius: 2)
+              ]),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(widget.categoriesInfo.imagePathName),
+              Text(widget.categoriesInfo.name)
+            ],
+          )),
+    );
   }
 }

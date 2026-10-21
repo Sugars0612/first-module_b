@@ -35,7 +35,12 @@ class _HomeTypePageState extends State<HomeTypePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Main dishes"),
+        title: Text("Main dishes",
+        style: TextStyle(
+          color: Colors.black
+        )),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
       ),
       body: Padding(
           padding: const EdgeInsets.all(10),
