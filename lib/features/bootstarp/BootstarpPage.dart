@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/MainPage.dart';
-<<<<<<< HEAD
-=======
 import 'package:module_b_first/features/welcome/WelcomePage.dart';
->>>>>>> develop
 
 class BootstarpPage extends StatelessWidget {
   const BootstarpPage({super.key});
