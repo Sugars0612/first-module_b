@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/detail/DetailPage.dart';
+import 'package:module_b_first/features/discover/DiscoverPage.dart';
 import 'package:module_b_first/features/home/HomePage.dart';
 import 'package:module_b_first/features/home/models/FoodItem.dart';
 import 'package:module_b_first/features/home/services/HomeService.dart';
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     FoodItem item = FoodItem(id: 1, imagePathName: "http://10.0.2.2:9999/media/foods/1.png", name: "test", rating: 4.1, introduce: "l卡尼玛");
     return MaterialApp(
-      home: HomePage()
+      home: DiscoverPage()
     );
   }
 }
