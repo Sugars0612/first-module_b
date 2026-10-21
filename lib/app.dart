@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/home/HomePage.dart';
 import 'package:module_b_first/features/home/services/HomeService.dart';
+import 'package:module_b_first/features/home_type/HomeTypePage.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -14,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: HomeTypePage(),
     );
   }
 }
