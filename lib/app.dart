@@ -7,6 +7,8 @@ import 'package:module_b_first/features/home/HomePage.dart';
 import 'package:module_b_first/features/home/models/FoodItem.dart';
 import 'package:module_b_first/features/home/services/HomeService.dart';
 import 'package:module_b_first/features/home_type/HomeTypePage.dart';
+import 'package:module_b_first/features/login/LoginPage.dart';
+import 'package:module_b_first/features/welcome/WelcomePage.dart';
 
 
 class MyApp extends StatefulWidget {
