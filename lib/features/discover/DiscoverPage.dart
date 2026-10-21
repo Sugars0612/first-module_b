@@ -61,7 +61,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                     separatorBuilder: (BuildContext context, int index) {
                       return SizedBox(width: 20);
                     },
-                    itemCount: 3)
+                    itemCount: chefs.length)
             )
         ),
       )

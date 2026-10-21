@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   List<BannerItem> banners = [];
   List<CategoriesItem> categories = [];
   List<FoodItem> foods = [];
-  int _currentIndex = 1;
+  // int _currentIndex = 1;
 
   @override
   void initState() {
@@ -159,37 +159,6 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     )),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          labelTextStyle: MaterialStatePropertyAll(
-            TextStyle(
-              fontSize: 15,
-              color: Colors.grey
-            )
-          )
-        ),
-        child: NavigationBar(
-          indicatorColor: Colors.white,
-          backgroundColor: Colors.white,
-          selectedIndex: _currentIndex,
-          onDestinationSelected: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          destinations: [
-            NavigationDestination
-              (icon: Icon(Icons.language,
-                color: Colors.grey), label: _currentIndex == 0 ? "" : "discover"
-            ),
-            NavigationDestination(
-                icon: Icon(Icons.home,
-                    color: Colors.grey), label: _currentIndex == 1 ? "" : "home"
-            )
-          ],
-        ),
-      )
-
     );
   }
 }
