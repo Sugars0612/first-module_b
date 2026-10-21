@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:module_b_first/features/login/LoginPage.dart';
 
 class WelcomeCard extends StatelessWidget {
   const WelcomeCard({super.key});
@@ -22,19 +23,24 @@ class WelcomeCard extends StatelessWidget {
             color: Colors.white,
           )),
           SizedBox(height: 20),
-          Container(
-            // padding: EdgeInsets.symmetric(horizontal: 20),
-            height: 40,
-            width: 225,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.amber,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+            },
+            child: Container(
+              // padding: EdgeInsets.symmetric(horizontal: 20),
+              height: 40,
+              width: 225,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.amber,
+              ),
+              child: Text("Login", style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white
+              )),
             ),
-            child: Text("Login", style: TextStyle(
-              fontSize: 18,
-              color: Colors.white
-            )),
           ),
           SizedBox(height: 20),
           Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:module_b_first/features/MainPage.dart';
 
 class LoginCard extends StatefulWidget {
   const LoginCard({super.key});
@@ -99,19 +100,24 @@ class _LoginCardState extends State<LoginCard> {
               ],
             ),
           ),
-          SizedBox(height: 80),
-          Container(
-            // padding: EdgeInsets.symmetric(horizontal: 20),
-            height: 40,
-            width: 225,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: Colors.amber,
+          SizedBox(height: 50),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) => MainPage()), (route) => false);
+            },
+            child: Container(
+              // padding: EdgeInsets.symmetric(horizontal: 20),
+              height: 40,
+              width: 225,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.amber,
+              ),
+              child: Text("Login",
+                  style: TextStyle(fontSize: 18, color: Colors.white)),
             ),
-            child: Text("Login",
-                style: TextStyle(fontSize: 18, color: Colors.white)),
-          ),
+          )
         ],
       ),
     );

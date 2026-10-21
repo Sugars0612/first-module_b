@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:module_b_first/features/MainPage.dart';
+import 'package:module_b_first/features/welcome/WelcomePage.dart';
 
 class BootstarpPage extends StatelessWidget {
   const BootstarpPage({super.key});
@@ -19,7 +20,7 @@ class BootstarpPage extends StatelessWidget {
           right: 20,
           child: GestureDetector(
             onTap: () {
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => MainPage()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => WelcomePage()));
             },
             child: Container(
                 height: 65,
