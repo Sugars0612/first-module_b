@@ -5,7 +5,7 @@ import 'package:module_b_first/features/home_type/models/FoodType.dart';
 
 class HomeTypeService {
   HttpClient client = HttpClient();
-  final String baseUrl = "http://10.0.2.2:9999/";
+  final String baseUrl = "http://8.134.188.168:82/";
   final String foodsTypePath = "api/foods-type/";
 
   Future<List<FoodType>> getFoodsType() async {
@@ -33,5 +33,9 @@ class HomeTypeService {
     } catch (e) {
       throw Exception("请求处理失败: $e");
     }
+  }
+
+  void dispose() {
+    client.close();
   }
 }

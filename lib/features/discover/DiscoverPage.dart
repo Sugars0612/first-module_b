@@ -29,6 +29,14 @@ class _DiscoverPageState extends State<DiscoverPage> {
     });
     // print(data);
   }
+
+  @override
+  void dispose() {
+    chefService.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -8,7 +8,7 @@ import 'package:module_b_first/features/home/models/FoodItem.dart';
 
 class HomeService {
   final HttpClient client = HttpClient();
-  final String baseUrl = "http://10.0.2.2:9999/";
+  final String baseUrl = "http://8.134.188.168:82/";
 
   // late final String mediaPath = "${baseUrl}";
   final String bannerPath = "api/banners";

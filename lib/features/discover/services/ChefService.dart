@@ -6,7 +6,7 @@ import 'package:module_b_first/features/discover/models/ChefItem.dart';
 
 class ChefService {
   HttpClient client = HttpClient();
-  String baseUrl = "http://10.0.2.2:9999/";
+  String baseUrl = "http://8.134.188.168:82/";
   String chefPath = "api/chefs/";
 
   Future<List<ChefItem>> getChefs() async {
@@ -39,5 +39,9 @@ class ChefService {
     } catch (e) {
       throw Exception("请求处理失败: $e");
     }
+  }
+
+  void dispose() {
+    client.close();
   }
 }

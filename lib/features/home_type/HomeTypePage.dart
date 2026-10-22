@@ -50,4 +50,11 @@ class _HomeTypePageState extends State<HomeTypePage> {
           }))),
     );
   }
+
+  @override
+  void dispose() {
+    homeTypeService.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
 }

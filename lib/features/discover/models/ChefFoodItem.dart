@@ -8,6 +8,6 @@ class ChefFoodItem {
   });
 
   factory ChefFoodItem.fromJson(Map<String, dynamic> json) {
-    return ChefFoodItem(name: json['name'], imagePathName: "http://10.0.2.2:9999${json['image']}");
+    return ChefFoodItem(name: json['name'], imagePathName: "http://8.134.188.168:82${json['image']}");
   }
 }

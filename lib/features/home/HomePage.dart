@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+
   List<Widget> buildCategoryWidgets() {
 
     // children: [
@@ -86,6 +87,12 @@ class _HomePageState extends State<HomePage> {
     return widgets;
   }
 
+  @override
+  void dispose() {
+    service.dispose();
+    // TODO: implement dispose
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
